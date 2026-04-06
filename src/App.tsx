@@ -7,7 +7,7 @@ import Background3D from './components/Background3D';
 // const Projects = lazy(() => import('./components/Projects').then(m => ({ default: m.Projects })));
 function App() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen min-w-0">
       <Background3D />
       <div className="bg-accents" aria-hidden="true" />
       <div className="subtle-grid" aria-hidden="true" />

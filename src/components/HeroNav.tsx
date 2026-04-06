@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Mail, FileText } from 'lucide-react';
+import { Menu, X, ArrowRight, FileText } from 'lucide-react';
 import { navigation, hero, contact } from '../data';
 
 export const Navbar: React.FC = () => {
@@ -151,7 +151,7 @@ export const Hero: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="section-kicker"
+              className="section-kicker section-kicker--heroWrap"
             >
               <span className="section-kickerDot" />
               {hero.eyebrow}
@@ -182,15 +182,6 @@ export const Hero: React.FC = () => {
                 </button>
               )}
             </div>
-
-            <div className="pillRow" style={{ gap: '1rem' }}>
-              <a href="#projects" className="btn btn-primary" style={{ paddingLeft: '2rem', paddingRight: '2rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                View Work <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="#contact" className="btn btn-secondary" style={{ paddingLeft: '1.75rem', paddingRight: '1.75rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                Let’s talk <Mail className="w-4 h-4" />
-              </a>
-            </div>
           </motion.div>
 
           <motion.div
@@ -204,12 +195,12 @@ export const Hero: React.FC = () => {
               <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full blur-3xl" style={{ background: 'rgba(38, 217, 209, 0.10)' }} />
 
               <div className="relative">
-                <div className="flex items-center justify-between gap-4 mb-8">
-                  <div>
+                <div className="heroImpactHeader mb-8">
+                  <div className="min-w-0">
                     <p className="text-sm text-muted font-medium mb-1">Selected impact</p>
                     <p className="text-2xl font-bold tracking-tight">Systems that ship & scale</p>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2">
+                  <div className="heroImpactIcons">
                     <a
                       href={contact.github}
                       target="_blank"

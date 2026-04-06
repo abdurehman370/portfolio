@@ -52,6 +52,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: clamp(5.5rem, 14vw, 7rem);
 }
 
 body {
@@ -63,6 +64,10 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  min-width: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -77,6 +82,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   letter-spacing: -0.03em;
   font-weight: 800;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .h1 {
+    font-size: clamp(1.85rem, 8.5vw, 2.5rem);
+  }
 }
 
 .h2 {
@@ -90,6 +103,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
   color: var(--text-secondary);
   max-width: 65ch;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .text-muted {
@@ -140,9 +155,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .max-w-7xl {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2rem);
+  box-sizing: border-box;
 }
 
 .section {
@@ -186,6 +203,17 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 560px) {
+  .section-kicker--heroWrap {
+    white-space: normal;
+    text-align: left;
+    font-size: 0.65rem;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+    padding: 0.45rem 0.75rem;
+  }
 }
 
 .section-kickerDot {
@@ -365,6 +393,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 
+.twoCol > * {
+  min-width: 0;
+}
+
 .hangingWrap {
   position: relative;
   padding-top: 4.25rem; /* space for long string + pin */
@@ -437,7 +469,7 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translateY(0) rotate(-2.2deg); }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1080px) {
   .twoCol {
     grid-template-columns: 1.1fr 0.9fr;
   }
@@ -504,6 +536,9 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
   padding: 0.6rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .navShell--scrolled .navPill {
@@ -516,16 +551,19 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  min-width: 0;
 }
 
 .brand {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.05rem, 4.2vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   text-decoration: none;
   color: var(--text-primary);
   transition: all var(--transition-fast);
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .brand:hover {
@@ -639,6 +677,19 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+@media (max-width: 640px) {
+  .heroSection {
+    align-items: flex-start;
+    min-height: auto;
+    padding-top: clamp(5.25rem, 14vw, 6.5rem);
+    padding-bottom: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .heroFrame .glass-card.p-8 {
+    padding: 1.15rem 1rem;
+  }
+}
+
 .heroFrame {
   margin-top: clamp(0.75rem, 2vh, 1.25rem);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -646,6 +697,72 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 28px;
   padding: clamp(1.25rem, 2.4vw, 2rem);
   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.heroCtaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.heroCtaRow .btn {
+  flex: 1 1 10.5rem;
+  min-width: min(100%, 10.5rem);
+}
+
+@media (max-width: 420px) {
+  .heroCtaRow .btn {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+}
+
+.heroImpactHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.heroImpactHeader > div:first-child {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.heroImpactIcons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .navPill {
+    padding: 0.45rem 0.65rem;
+    border-radius: 1.1rem;
+  }
+
+  .navInner {
+    gap: 0.65rem;
+  }
+}
+
+.contactShell {
+  overflow-x: clip;
+}
+
+.contactLinkBlock {
+  min-width: 0;
+}
+
+.contactLinkBlock .text-lg {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .heroSection::before {
@@ -813,6 +930,17 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
+@media (max-width: 640px) {
+  .timelineCard {
+    height: auto;
+    min-height: clamp(10rem, 32vw, 12rem);
+  }
+
+  #about .glass-card.p-10 {
+    padding: 1.25rem 1.1rem;
+  }
+}
+
 .twoColProjects > * {
   min-width: 0;
 }
@@ -826,7 +954,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: clamp(0.75rem, 4vw, 2rem);
 }
 
 .lightboxClose {
