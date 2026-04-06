@@ -1,0 +1,88 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="COD Pro — Operational Logic">
+  <defs>
+    <linearGradient id="bgc2" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111f"/>
+      <stop offset="1" stop-color="#050810"/>
+    </linearGradient>
+    <linearGradient id="ac2" x1="400" y1="100" x2="1300" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#26D9D1" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#7C8CFF" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="glc2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bgc2)"/>
+  <ellipse cx="300" cy="400" rx="340" ry="240" fill="url(#ac2)" filter="url(#glc2)" opacity="0.6"/>
+  <ellipse cx="1300" cy="500" rx="280" ry="210" fill="url(#ac2)" filter="url(#glc2)" opacity="0.5"/>
+
+  <!-- Header labels -->
+  <text x="110" y="100" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif" font-size="13" font-weight="600" letter-spacing="3">ORDER RISK ENGINE</text>
+
+  <!-- Risk score card -->
+  <rect x="110" y="120" width="340" height="200" rx="16" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="140" y="160" fill="rgba(255,255,255,0.5)" font-family="Inter, sans-serif" font-size="12" font-weight="500">RISK SCORE</text>
+  <text x="140" y="210" fill="#26D9D1" font-family="Inter, sans-serif" font-size="52" font-weight="700">78</text>
+  <text x="200" y="210" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="20">/100</text>
+  <rect x="140" y="232" width="200" height="8" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <rect x="140" y="232" width="156" height="8" rx="4" fill="rgba(255,100,100,0.6)"/>
+  <text x="140" y="265" fill="rgba(255,130,130,0.8)" font-family="Inter, sans-serif" font-size="13">High Risk — Manual review required</text>
+  <text x="140" y="295" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="12">Order #COD-00914</text>
+
+  <!-- Verification channel row -->
+  <rect x="470" y="120" width="1020" height="200" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="500" y="160" fill="rgba(255,255,255,0.45)" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">VERIFICATION CHANNELS</text>
+  <!-- WhatsApp step -->
+  <rect x="500" y="175" width="280" height="100" rx="12" fill="rgba(38,217,209,0.08)" stroke="rgba(38,217,209,0.25)"/>
+  <text x="530" y="215" fill="#26D9D1" font-family="Inter, sans-serif" font-size="14" font-weight="600">WhatsApp</text>
+  <text x="530" y="238" fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="12">Sent • Awaiting reply</text>
+  <rect x="530" y="255" width="60" height="6" rx="3" fill="rgba(38,217,209,0.4)"/>
+  <!-- Email step -->
+  <rect x="810" y="175" width="280" height="100" rx="12" fill="rgba(124,140,255,0.07)" stroke="rgba(124,140,255,0.2)"/>
+  <text x="840" y="215" fill="#8b9fff" font-family="Inter, sans-serif" font-size="14" font-weight="600">Email</text>
+  <text x="840" y="238" fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="12">Delivered • Opened</text>
+  <rect x="840" y="255" width="90" height="6" rx="3" fill="rgba(124,140,255,0.45)"/>
+  <!-- Call step -->
+  <rect x="1120" y="175" width="280" height="100" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)"/>
+  <text x="1150" y="215" fill="rgba(255,255,255,0.6)" font-family="Inter, sans-serif" font-size="14" font-weight="600">Phone Call</text>
+  <text x="1150" y="238" fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="12">Pending</text>
+  <rect x="1150" y="255" width="30" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+
+  <!-- Recent orders table -->
+  <rect x="110" y="345" width="1380" height="50" rx="0" fill="rgba(255,255,255,0.03)"/>
+  <text x="140" y="376" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="12" font-weight="600">ORDER ID</text>
+  <text x="360" y="376" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="12" font-weight="600">CUSTOMER</text>
+  <text x="620" y="376" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="12" font-weight="600">CHANNELS</text>
+  <text x="900" y="376" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="12" font-weight="600">SCORE</text>
+  <text x="1100" y="376" fill="rgba(255,255,255,0.3)" font-family="Inter, sans-serif" font-size="12" font-weight="600">STATUS</text>
+  <!-- Row 1 -->
+  <rect x="110" y="395" width="1380" height="52" rx="0" fill="rgba(255,100,100,0.04)" stroke-width="0"/>
+  <rect x="110" y="446" width="1380" height="1" fill="rgba(255,255,255,0.05)"/>
+  <text x="140" y="426" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif" font-size="13">#COD-00914</text>
+  <text x="360" y="426" fill="rgba(255,255,255,0.6)" font-family="Inter, sans-serif" font-size="13">Ahmad K.</text>
+  <text x="620" y="426" fill="#26D9D1" font-family="Inter, sans-serif" font-size="12">WA · Email · Call</text>
+  <text x="900" y="426" fill="rgba(255,100,100,0.9)" font-family="Inter, sans-serif" font-size="13" font-weight="700">78</text>
+  <rect x="1100" y="412" width="90" height="22" rx="6" fill="rgba(255,100,100,0.15)" stroke="rgba(255,100,100,0.3)"/>
+  <text x="1115" y="427" fill="rgba(255,130,130,0.9)" font-family="Inter, sans-serif" font-size="12">High Risk</text>
+  <!-- Row 2 -->
+  <rect x="110" y="447" width="1380" height="52" rx="0"/>
+  <rect x="110" y="498" width="1380" height="1" fill="rgba(255,255,255,0.05)"/>
+  <text x="140" y="477" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif" font-size="13">#COD-00913</text>
+  <text x="360" y="477" fill="rgba(255,255,255,0.6)" font-family="Inter, sans-serif" font-size="13">Sara M.</text>
+  <text x="620" y="477" fill="#26D9D1" font-family="Inter, sans-serif" font-size="12">WA · Email</text>
+  <text x="900" y="477" fill="rgba(38,217,209,0.9)" font-family="Inter, sans-serif" font-size="13" font-weight="700">32</text>
+  <rect x="1100" y="463" width="90" height="22" rx="6" fill="rgba(38,217,209,0.1)" stroke="rgba(38,217,209,0.25)"/>
+  <text x="1115" y="478" fill="rgba(38,217,209,0.9)" font-family="Inter, sans-serif" font-size="12">Confirmed</text>
+  <!-- Row 3 -->
+  <rect x="110" y="499" width="1380" height="52" rx="0"/>
+  <text x="140" y="529" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif" font-size="13">#COD-00912</text>
+  <text x="360" y="529" fill="rgba(255,255,255,0.6)" font-family="Inter, sans-serif" font-size="13">Omar F.</text>
+  <text x="620" y="529" fill="#26D9D1" font-family="Inter, sans-serif" font-size="12">WA</text>
+  <text x="900" y="529" fill="rgba(255,200,80,0.9)" font-family="Inter, sans-serif" font-size="13" font-weight="700">55</text>
+  <rect x="1100" y="515" width="90" height="22" rx="6" fill="rgba(255,200,80,0.1)" stroke="rgba(255,200,80,0.25)"/>
+  <text x="1115" y="530" fill="rgba(255,200,80,0.9)" font-family="Inter, sans-serif" font-size="12">Pending</text>
+
+  <text x="110" y="630" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif" font-size="13" font-weight="600" letter-spacing="2">COD PRO VERIFICATION</text>
+  <text x="110" y="678" fill="#F8FAFC" font-family="Inter, sans-serif" font-size="40" font-weight="700">Operational Risk Logic</text>
+  <text x="110" y="722" fill="rgba(255,255,255,0.5)" font-family="Inter, sans-serif" font-size="18">Multi-channel automation reducing failed COD deliveries</text>
+</svg>

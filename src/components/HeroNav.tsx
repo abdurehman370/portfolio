@@ -22,22 +22,36 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     const els = sectionIds
       .map(id => document.querySelector(id))
-      .filter(Boolean) as Element[];
+      .filter(Boolean) as HTMLElement[];
 
     if (!els.length) return;
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
-        if (visible?.target?.id) setActiveHash(`#${visible.target.id}`);
-      },
-      { rootMargin: '-30% 0px -65% 0px', threshold: [0.1, 0.2, 0.35] }
-    );
+    let raf = 0;
+    const NAV_OFFSET_PX = 110; // accounts for fixed nav + a bit of breathing room
 
-    els.forEach(el => io.observe(el));
-    return () => io.disconnect();
+    const computeActive = () => {
+      const y = window.scrollY + NAV_OFFSET_PX;
+      let current = els[0];
+      for (const el of els) {
+        if (el.offsetTop <= y) current = el;
+      }
+      setActiveHash(`#${current.id}`);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(computeActive);
+    };
+
+    computeActive();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, [sectionIds]);
 
   return (

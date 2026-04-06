@@ -9,6 +9,11 @@ import {
   ShoppingBag,
 } from 'lucide-react';
 
+const assetUrl = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${path.replace(/^\/+/, '')}`;
+};
+
 export const navigation = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
@@ -71,13 +76,13 @@ export const projects = [
       { name: "Pricing Demo", href: "https://youtu.be/ijQPD66E8FY", icon: Globe }
     ],
     images: [
-      { src: "images/icar1.png", caption: "Dealer Dashboard — real-time inventory and pricing" },
-      { src: "images/icar2.png", caption: "Market Analysis — historical price trends" },
-      { src: "images/icar3.png", caption: "Vehicle Evaluation — AI-powered price prediction" },
-      { src: "images/icar4.png", caption: "Alert System — custom notifications for price drops" },
-      { src: "images/icar5.png", caption: "Admin Panel — managing listings and dealers" },
-      { src: "images/icar6.png", caption: "Mobile View — responsive access for dealers on the go" },
-      { src: "images/icar7.png", caption: "Detailed Listing — comprehensive vehicle data" }
+      { src: assetUrl("images/icar1.png"), caption: "Dealer Dashboard — real-time inventory and pricing" },
+      { src: assetUrl("images/icar2.png"), caption: "Market Analysis — historical price trends" },
+      { src: assetUrl("images/icar3.png"), caption: "Vehicle Evaluation — AI-powered price prediction" },
+      { src: assetUrl("images/icar4.png"), caption: "Alert System — custom notifications for price drops" },
+      { src: assetUrl("images/icar5.png"), caption: "Admin Panel — managing listings and dealers" },
+      { src: assetUrl("images/icar6.png"), caption: "Mobile View — responsive access for dealers on the go" },
+      { src: assetUrl("images/icar7.png"), caption: "Detailed Listing — comprehensive vehicle data" }
     ]
   },
   {
@@ -96,14 +101,14 @@ export const projects = [
       { name: "GitHub", href: "https://github.com/abdurehman370/ProcureAI-Smart-Inventory-Supply-Chain-Intelligence", icon: Link }
     ],
     images: [
-      { src: "images/procurement1.png", caption: "Executive Dashboard — high-level supply chain KPIs" },
-      { src: "images/procurement2.png", caption: "Inventory Management — real-time stock tracking" },
-      { src: "images/procurement3.png", caption: "Demand Forecasting — AI-driven stock predictions" },
-      { src: "images/procurement4.png", caption: "Vendor Management — supplier performance and lead times" },
-      { src: "images/procurement5.png", caption: "Purchase Orders — automated procurement workflows" },
-      { src: "images/procurement6.png", caption: "Warehouse Analytics — regional stock distribution" },
-      { src: "images/procurement7.png", caption: "Price Anomaly Detection — identifying market fluctuations" },
-      { src: "images/procurement8.png", caption: "System Settings — configuration and user permissions" }
+      { src: assetUrl("images/procurement1.png"), caption: "Executive Dashboard — high-level supply chain KPIs" },
+      { src: assetUrl("images/procurement2.png"), caption: "Inventory Management — real-time stock tracking" },
+      { src: assetUrl("images/procurement3.png"), caption: "Demand Forecasting — AI-driven stock predictions" },
+      { src: assetUrl("images/procurement4.png"), caption: "Vendor Management — supplier performance and lead times" },
+      { src: assetUrl("images/procurement5.png"), caption: "Purchase Orders — automated procurement workflows" },
+      { src: assetUrl("images/procurement6.png"), caption: "Warehouse Analytics — regional stock distribution" },
+      { src: assetUrl("images/procurement7.png"), caption: "Price Anomaly Detection — identifying market fluctuations" },
+      { src: assetUrl("images/procurement8.png"), caption: "System Settings — configuration and user permissions" }
     ]
   },
   {
@@ -121,8 +126,8 @@ export const projects = [
       { name: "App Store", href: "https://apps.shopify.com/devteampro-product-reviews", icon: ShoppingBag }
     ],
     images: [
-      { src: "/project-images/shopify-reviews-1.svg", caption: "Embedded admin — moderation workflows" },
-      { src: "/project-images/shopify-reviews-1.svg", caption: "Merchant UX — fast review triage and publishing" }
+      { src: assetUrl("project-images/shopify-reviews-1.svg"), caption: "Embedded admin — moderation workflows" },
+      { src: assetUrl("project-images/shopify-reviews-2.svg"), caption: "Merchant UX — fast review triage and publishing" }
     ]
   },
   {
@@ -139,8 +144,8 @@ export const projects = [
       { name: "App Store", href: "https://apps.shopify.com/cod-call-whatsapp-email", icon: ShoppingBag }
     ],
     images: [
-      { src: "/project-images/cod-pro-1.svg", caption: "Flow overview — WhatsApp, email, and call steps" },
-      { src: "/project-images/cod-pro-1.svg", caption: "Operational logic — reduce risky COD orders" }
+      { src: assetUrl("project-images/cod-pro-1.svg"), caption: "Flow overview — WhatsApp, email, and call steps" },
+      { src: assetUrl("project-images/cod-pro-2.svg"), caption: "Operational logic — reduce risky COD orders" }
     ]
   }
 ];

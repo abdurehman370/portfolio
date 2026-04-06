@@ -146,12 +146,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-  padding: clamp(4rem, 10vw, 8rem) 0;
+  padding: clamp(3.25rem, 8vw, 6.25rem) 0;
   position: relative;
 }
 
 .section-header {
   margin-bottom: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
+.section-header .lead {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
@@ -631,6 +637,38 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
+.projectThumbCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.35rem 0.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.85);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.projectThumb:hover .projectThumbCaption {
+  opacity: 1;
+}
+
+.galleryScrollHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--text-subtle);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
 .galleryIndicator {
   position: absolute;
   right: 0;
@@ -647,6 +685,30 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   pointer-events: none;
   box-shadow: var(--shadow-md);
+}
+
+.project-card-inner {
+  padding: 1.6rem 1.5rem;
+  height: 100%;
+}
+
+.project-link {
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.04);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  color: var(--text-secondary) !important;
+}
+
+.project-link:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: var(--accent-blue);
+  color: var(--text-primary) !important;
+}
+
+.twoColProjects > * {
+  min-width: 0;
 }
 
 .lightboxOverlay {
@@ -799,6 +861,7 @@ h1, h2, h3, h4, h5, h6 {
 .mt-auto { margin-top: auto; }
 .p-4 { padding: 1rem; }
 .p-8 { padding: 2rem; }
+.p-10 { padding: 2.5rem; }
 .p-12 { padding: 3rem; }
 .pt-4 { padding-top: 1rem; }
 
