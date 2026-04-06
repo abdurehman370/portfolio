@@ -7,6 +7,7 @@ import {
   Link,
   Zap,
   ShoppingBag,
+  FileText,
 } from 'lucide-react';
 
 const assetUrl = (path: string) => {
@@ -73,6 +74,7 @@ export const projects = [
     ],
     links: [
       { name: "GitHub", href: "https://github.com/abdurehman370/I-Car", icon: Link },
+      { name: "Case study", href: assetUrl("i-car-case-study.pdf"), icon: FileText },
       { name: "Scraping Demo", href: "https://youtu.be/9dU3dyGEr3o", icon: Globe },
       { name: "Pricing Demo", href: "https://youtu.be/ijQPD66E8FY", icon: Globe }
     ],
@@ -99,7 +101,8 @@ export const projects = [
       "Premium analytics dashboard with Recharts."
     ],
     links: [
-      { name: "GitHub", href: "https://github.com/abdurehman370/ProcureAI-Smart-Inventory-Supply-Chain-Intelligence", icon: Link }
+      { name: "GitHub", href: "https://github.com/abdurehman370/ProcureAI-Smart-Inventory-Supply-Chain-Intelligence", icon: Link },
+      { name: "Case study", href: assetUrl("smart-procurement-case-study.pdf"), icon: FileText }
     ],
     images: [
       { src: assetUrl("images/procurement1.png"), caption: "Executive Dashboard — Login-Page" },
