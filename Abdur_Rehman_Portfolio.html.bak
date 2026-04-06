@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdur Rehman | Software Engineer</title>
+  <meta name="description" content="Portfolio of Abdur Rehman, Software Engineer focused on full-stack web development, e-commerce systems, APIs, and scalable applications." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121938;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #edf2ff;
+      --muted: #b9c2e6;
+      --accent: #7c9cff;
+      --accent-2: #67e8f9;
+      --success: #86efac;
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(124,156,255,0.2), transparent 24%),
+        radial-gradient(circle at top left, rgba(103,232,249,0.14), transparent 20%),
+        linear-gradient(180deg, #08101f 0%, #0b1020 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 12, 25, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 1.05rem;
+    }
+
+    .brand span { color: var(--accent-2); }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-card, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(124,156,255,0.28), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 760px;
+      margin: 0 0 24px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dfe6ff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #08101f;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .stats {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .stat-box {
+      padding: 18px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 26px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtext {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 6px 0 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    ul.clean {
+      padding-left: 18px;
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-date {
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 100%;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tags span {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .project-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .small-link {
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .grid-2 > .project-card--span-2 {
+      grid-column: 1 / -1;
+    }
+
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+
+    .project-gallery figure {
+      margin: 0;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.22);
+      cursor: zoom-in;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+    }
+
+    .project-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: bottom;
+    }
+
+    .project-gallery figcaption {
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.4;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .project-gallery figure:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      border-color: rgba(124, 156, 255, 0.35);
+    }
+
+    .project-gallery figure:focus-visible {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 3px;
+    }
+
+    .project-gallery figure::after {
+      content: "Click to enlarge";
+      position: absolute;
+      inset: auto 10px 48px 10px;
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    .project-gallery figure:hover::after,
+    .project-gallery figure:focus-visible::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-alias {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 4px 0 0;
+      font-style: italic;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .card,
+    .hero-card,
+    .timeline-item {
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+    }
+
+    .card:hover,
+    .timeline-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 156, 255, 0.22);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-card:hover {
+      border-color: rgba(103, 232, 249, 0.2);
+    }
+
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-on-scroll.reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.32s ease, visibility 0.32s ease;
+    }
+
+    .portfolio-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .portfolio-lightbox__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(4, 8, 18, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      cursor: zoom-out;
+    }
+
+    .portfolio-lightbox__dialog {
+      position: relative;
+      z-index: 2;
+      max-width: min(1200px, 96vw);
+      width: 100%;
+      animation: lightboxPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes lightboxPop {
+      from {
+        opacity: 0;
+        transform: scale(0.94) translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .portfolio-lightbox__figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .portfolio-lightbox__img {
+      max-width: 100%;
+      max-height: min(78vh, 820px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: opacity 0.25s ease;
+    }
+
+    .portfolio-lightbox__caption {
+      margin: 14px auto 0;
+      max-width: 640px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .portfolio-lightbox__counter {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      color: rgba(185, 194, 230, 0.75);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .portfolio-lightbox__close,
+    .portfolio-lightbox__nav {
+      position: absolute;
+      z-index: 3;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(18, 25, 56, 0.85);
+      color: var(--text);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+    }
+
+    .portfolio-lightbox__close:hover,
+    .portfolio-lightbox__nav:hover {
+      background: rgba(124, 156, 255, 0.25);
+      border-color: rgba(124, 156, 255, 0.45);
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .portfolio-lightbox__close {
+      top: -8px;
+      right: -8px;
+      width: 44px;
+      height: 44px;
+    }
+
+    .portfolio-lightbox__nav {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      font-size: 2rem;
+      padding-bottom: 4px;
+    }
+
+    .portfolio-lightbox__nav--prev {
+      left: -12px;
+    }
+
+    .portfolio-lightbox__nav--next {
+      right: -12px;
+    }
+
+    .portfolio-lightbox__nav.is-hidden {
+      display: none;
+    }
+
+    @media (max-width: 720px) {
+      .portfolio-lightbox__nav--prev {
+        left: 4px;
+      }
+      .portfolio-lightbox__nav--next {
+        right: 4px;
+      }
+      .portfolio-lightbox__close {
+        top: 8px;
+        right: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .next-steps li { margin-bottom: 10px; }
+
+    .footer {
+      padding: 32px 0 48px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .notice {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: rgba(134,239,172,0.08);
+      border: 1px solid rgba(134,239,172,0.2);
+      color: #dcffe8;
+      border-radius: 16px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid, .grid-3, .grid-2, .timeline-item {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding-top: 42px; }
+      .hero-card, .stats, .card { padding: 22px; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Abdur <span>Rehman</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <div class="eyebrow">Software Engineer • Full-Stack Web Development • E-commerce Systems</div>
+        <h1>Building practical software that solves real business problems.</h1>
+        <p class="lead">
+          I am a software engineer focused on full-stack web development, APIs, automation, and e-commerce applications.
+          My work combines clean frontend experiences with reliable backend logic, integrations, and scalable system design.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill">JavaScript</div>
+          <div class="pill">Node.js</div>
+          <div class="pill">React</div>
+          <div class="pill">Next.js</div>
+          <div class="pill">Remix</div>
+          <div class="pill">SQL</div>
+          <div class="pill">Shopify APIs</div>
+          <div class="pill">Python</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:pc18050.abdurehman@gmail.com">Contact Me</a>
+          <a class="btn btn-secondary" href="https://github.com/abdurehman370" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/abdu-rehman-b19893288/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="stats hero-card">
+        <div class="stat-box">
+          <div class="stat-label">Current focus</div>
+          <div class="stat-value">Software Engineer / Full-Stack Roles</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Core strengths</div>
+          <div class="stat-value">APIs, e-commerce systems, dashboards, automation</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Open to</div>
+          <div class="stat-value">Corporate, product, GCC, and international opportunities</div>
+        </div>
+        <div class="notice">
+          Replace project demo links below with your actual GitHub repositories or live deployments before applying widely.
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <h2>About</h2>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="muted" style="margin:0;">
+          I have hands-on experience building web and mobile applications, Shopify apps, internal tools, and automation workflows.
+          My background includes frontend development, backend APIs, third-party integrations, data scraping, and product-oriented problem solving.
+          I enjoy building software that is fast, maintainable, and useful in real business environments.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <h2>Skills</h2>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Frontend</h3>
+          <p class="muted">React, Next.js, Remix, TypeScript, HTML5, CSS3, Tailwind CSS, Recharts, JavaScript</p>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <p class="muted">Node.js, Express, Python, FastAPI, REST APIs, GraphQL APIs, webhooks, authentication, automation logic</p>
+        </div>
+        <div class="card">
+          <h3>Data & Tools</h3>
+          <p class="muted">PostgreSQL, Prisma ORM, MySQL, SQL Server, Redis, BullMQ, Docker, Git, GitHub, Python scraping, VS Code, API integrations</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <h2>Featured Projects</h2>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card project-card project-card--span-2">
+          <div>
+            <h3>I-Car Price Evaluation Platform</h3>
+            <p class="muted">Real-time car price evaluation platform for UAE, Lebanon, and Europe markets, combining web, mobile, scraping, and AI-assisted pricing workflows. Implemented Redis and BullMQ to power alert delivery and cron-style scheduled jobs. Includes a verified dealer portal for inventory and listings, plus an admin portal for onboarding and oversight.</p>
+          </div>
+          <div class="project-tags">
+            <span>Next.js</span><span>React Native</span><span>Python</span><span>Redis</span><span>BullMQ</span><span>AI Integration</span><span>Admin Panel</span>
+          </div>
+          <ul class="clean">
+            <li>Built web and mobile product flows for vehicle price prediction.</li>
+            <li>Collected listing data from regional sources using Python scrapers.</li>
+            <li>Implemented Redis and BullMQ for alerts, background work, and cron job scheduling.</li>
+            <li>Implemented dealer authentication and admin controls.</li>
+          </ul>
+          <div class="project-gallery" aria-label="iCar dealer and admin portal screenshots">
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 18-56-41.png" alt="iCar marketing landing page with dealer login and live market analysis" loading="lazy" />
+              <figcaption>Landing — dealer entry and live market positioning</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 18-57-06.png" alt="iCar dealer portal sign-in screen" loading="lazy" />
+              <figcaption>Dealer portal — secure sign-in</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 18-57-31.png" alt="Dealer dashboard showing active listings and inventory metrics" loading="lazy" />
+              <figcaption>Dealer dashboard — listings, inventory value, and vehicle management</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 19-17-07.png" alt="Admin portal dealers table with status and contact details" loading="lazy" />
+              <figcaption>Admin portal — dealer directory and approval status</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 19-17-24.png" alt="Admin dealer registrations queue with pending and approved counts" loading="lazy" />
+              <figcaption>Admin portal — review and approve dealer registrations</figcaption>
+            </figure>
+          </div>
+          <div class="project-actions">
+            <a class="small-link" href="https://github.com/abdurehman370/I-Car" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="small-link" href="https://youtu.be/9dU3dyGEr3o" target="_blank" rel="noreferrer">YouTube: marketplace scraping</a>
+            <a class="small-link" href="https://youtu.be/ijQPD66E8FY" target="_blank" rel="noreferrer">YouTube: pricing &amp; listings</a>
+          </div>
+        </article>
+
+        <article class="card project-card project-card--span-2">
+          <div>
+            <h3>ProcureAI: Smart Inventory &amp; Supply Chain Intelligence</h3>
+            <p class="project-alias">Alternate product names: SentinelProcure · OptiSource — procurement &amp; inventory intelligence.</p>
+            <p class="muted">An enterprise-grade, AI-powered procurement and inventory management platform designed to eliminate supply chain inefficiencies. Built with a modern microservices architecture, the system leverages machine learning to forecast demand and detect pricing anomalies, enabling data-driven decision-making for inventory managers and procurement officers.</p>
+          </div>
+          <div class="project-tags">
+            <span>Next.js 15</span><span>Python</span><span>FastAPI</span><span>Prisma ORM</span><span>PostgreSQL</span><span>Redis</span><span>BullMQ</span><span>Tailwind CSS v4</span><span>TypeScript</span><span>Docker</span>
+          </div>
+          <ul class="clean">
+            <li><strong>AI-driven forecasting:</strong> Integrated a Python/FastAPI service for real-time demand forecasting and price anomaly detection, reducing stockouts and over-procurement by surfacing high-risk supply patterns.</li>
+            <li><strong>Microservices architecture:</strong> Decoupled Node.js/Express core business logic, Python for specialized AI workloads, and Next.js 15 for a high-performance, real-time dashboard.</li>
+            <li><strong>Enterprise-grade inventory logic:</strong> Multi-warehouse tracking, manual stock adjustments, and reorder threshold monitoring.</li>
+            <li><strong>Advanced procurement workflows:</strong> Dynamic purchase orders with multi-item lines and real-time totals, linking vendor management to stock fulfillment.</li>
+            <li><strong>Robust data architecture:</strong> Relational schema with Prisma ORM and PostgreSQL, tuned for high-integrity procurement transactions and audit logging.</li>
+            <li><strong>Modern UI/UX:</strong> Premium analytics experience with Tailwind CSS v4 and Recharts, glassmorphism accents, and responsive visualizations.</li>
+          </ul>
+          <div class="project-gallery" aria-label="ProcureAI SmartProcure platform screenshots">
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-32-56.png" alt="Smart Procurement enterprise login with glassmorphism card over warehouse background" loading="lazy" />
+              <figcaption>Secure login — glassmorphism terminal over automated warehouse visual</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-35-49.png" alt="SmartProcure main dashboard with KPIs, spend trend chart, and AI insight widgets" loading="lazy" />
+              <figcaption>Executive dashboard — KPIs, spend trends, demand forecast &amp; anomaly alerts</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-36-05.png" alt="Product catalog table with SKU, category, reorder level, and active status" loading="lazy" />
+              <figcaption>Product catalog — SKU management and reorder thresholds</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-36-16.png" alt="Add new product modal with fields for SKU, category, supplier, and reorder level" loading="lazy" />
+              <figcaption>Add product — structured capture for procurement master data</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-36-33.png" alt="Multi-warehouse inventory status with healthy and low stock badges" loading="lazy" />
+              <figcaption>Inventory status — multi-warehouse quantities and stock health</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-36-42.png" alt="Adjust inventory level modal for stock in and out by warehouse" loading="lazy" />
+              <figcaption>Stock adjustments — warehouse-level corrections with audit context</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-36-55.png" alt="Supplier directory cards with lead time, ratings, and activate controls" loading="lazy" />
+              <figcaption>Supplier directory — vendor relationships and operational status</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Screenshot from 2026-04-03 23-37-11.png" alt="Inventory intelligence analytics with forecast, anomalies, and supply-demand charts" loading="lazy" />
+              <figcaption>Analytics suite — AI forecasting, pricing anomalies, and capital optimization</figcaption>
+            </figure>
+          </div>
+          <div class="project-actions">
+            <a class="small-link" href="https://github.com/abdurehman370/ProcureAI-Smart-Inventory-Supply-Chain-Intelligence" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <h3>Shopify Product Reviews App</h3>
+            <p class="muted">Custom Shopify application for collecting, managing, and displaying product reviews with merchant-facing controls.</p>
+          </div>
+          <div class="project-tags">
+            <span>Remix</span><span>Node.js</span><span>Shopify APIs</span><span>React</span>
+          </div>
+          <ul class="clean">
+            <li>Built merchant workflows for review moderation and presentation.</li>
+            <li>Integrated Shopify APIs and app logic for embedded workflows.</li>
+            <li>Focused on usability and practical store management needs.</li>
+          </ul>
+          <div class="project-actions">
+            <a class="small-link" href="https://github.com/DevteamPro-Inc/shopify-review-app" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="small-link" href="https://apps.shopify.com/devteampro-product-reviews" target="_blank" rel="noreferrer">Shopify App Store</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <h3>COD Pro Verification App</h3>
+            <p class="muted">Cash-on-delivery verification workflow for store owners using WhatsApp, email, and call-based confirmation steps.</p>
+          </div>
+          <div class="project-tags">
+            <span>Node.js</span><span>Automation</span><span>Notifications</span><span>E-commerce</span>
+          </div>
+          <ul class="clean">
+            <li>Designed operational logic to reduce risky COD orders.</li>
+            <li>Connected communication flows into one merchant process.</li>
+            <li>Built practical automation around store operations.</li>
+          </ul>
+          <div class="project-actions">
+            <a class="small-link" href="https://apps.shopify.com/cod-call-whatsapp-email" target="_blank" rel="noreferrer">Shopify App Store</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <h3>Inventory & Bundle Management Tools</h3>
+            <p class="muted">Internal applications for inventory tracking and product bundle management, built to simplify day-to-day merchant operations.</p>
+          </div>
+          <div class="project-tags">
+            <span>React</span><span>Node.js</span><span>SQL</span><span>Internal Tools</span>
+          </div>
+          <ul class="clean">
+            <li>Built admin-oriented flows for product and stock operations.</li>
+            <li>Focused on utility, maintainability, and business process support.</li>
+            <li>Designed features for operational efficiency rather than demo value only.</li>
+          </ul>
+          <div class="project-actions">
+            <a class="small-link" href="https://github.com/abdurehman370/remixapp-Low-inventory-alert-" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Projects to Build Next</h2>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Support Ticket System</h3>
+          <p class="muted">Ticket lifecycle, comments, attachments, role-based access, and email notifications.</p>
+        </div>
+        <div class="card">
+          <h3>Job Application Tracker</h3>
+          <p class="muted">Track applications, interviews, follow-ups, status history, reminders, and notes.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <h2>Experience & Education</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Aug 2025 – Present</div>
+          <div>
+            <h3 style="margin:0 0 6px;">Software Developer — DevTeamPro</h3>
+            <p class="muted" style="margin:0;">Developing Shopify applications, merchant automation tools, and internal e-commerce systems using React, Remix, Node.js, APIs, and backend logic.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">BSCS</div>
+          <div>
+            <h3 style="margin:0 0 6px;">Bahria University, Karachi</h3>
+            <p class="muted" style="margin:0;">Bachelor of Science in Computer Science • GPA: 3.4 / 4.0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p class="subtext">Make it easy for recruiters to reach you in one click.</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Email</h3>
+          <p class="muted"><a href="mailto:pc18050.abdurehman@gmail.com">pc18050.abdurehman@gmail.com</a></p>
+        </div>
+        <div class="card">
+          <h3>LinkedIn</h3>
+          <p class="muted"><a href="https://www.linkedin.com/in/abdu-rehman-b19893288/" target="_blank" rel="noreferrer">linkedin.com/in/abdu-rehman-b19893288</a></p>
+        </div>
+        <div class="card">
+          <h3>GitHub</h3>
+          <p class="muted"><a href="https://github.com/abdurehman370" target="_blank" rel="noreferrer">github.com/abdurehman370</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="portfolio-lightbox" class="portfolio-lightbox" aria-hidden="true">
+    <div class="portfolio-lightbox__backdrop" role="presentation"></div>
+    <div class="portfolio-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Screenshot gallery">
+      <button type="button" class="portfolio-lightbox__close" aria-label="Close gallery">&times;</button>
+      <button type="button" class="portfolio-lightbox__nav portfolio-lightbox__nav--prev is-hidden" aria-label="Previous screenshot">&#8249;</button>
+      <button type="button" class="portfolio-lightbox__nav portfolio-lightbox__nav--next is-hidden" aria-label="Next screenshot">&#8250;</button>
+      <figure class="portfolio-lightbox__figure">
+        <img class="portfolio-lightbox__img" src="" alt="" decoding="async" />
+        <figcaption class="portfolio-lightbox__caption"></figcaption>
+      </figure>
+      <div class="portfolio-lightbox__counter"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById("portfolio-lightbox");
+      if (!lb) return;
+
+      var imgEl = lb.querySelector(".portfolio-lightbox__img");
+      var capEl = lb.querySelector(".portfolio-lightbox__caption");
+      var counterEl = lb.querySelector(".portfolio-lightbox__counter");
+      var btnClose = lb.querySelector(".portfolio-lightbox__close");
+      var btnPrev = lb.querySelector(".portfolio-lightbox__nav--prev");
+      var btnNext = lb.querySelector(".portfolio-lightbox__nav--next");
+      var backdrop = lb.querySelector(".portfolio-lightbox__backdrop");
+
+      var slides = [];
+      var index = 0;
+      var lastFocus = null;
+
+      function updateNavVisibility() {
+        var multi = slides.length > 1;
+        btnPrev.classList.toggle("is-hidden", !multi);
+        btnNext.classList.toggle("is-hidden", !multi);
+      }
+
+      function render() {
+        if (!slides.length) return;
+        var s = slides[index];
+        imgEl.src = s.src;
+        imgEl.alt = s.alt;
+        capEl.textContent = s.caption;
+        counterEl.textContent = slides.length > 1 ? index + 1 + " / " + slides.length : "";
+        updateNavVisibility();
+      }
+
+      function open(slidesData, startIndex) {
+        slides = slidesData;
+        index = startIndex;
+        lastFocus = document.activeElement;
+        lb.setAttribute("aria-hidden", "false");
+        lb.classList.add("is-open");
+        document.documentElement.style.overflow = "hidden";
+        render();
+        btnClose.focus();
+      }
+
+      function close() {
+        lb.classList.remove("is-open");
+        lb.setAttribute("aria-hidden", "true");
+        document.documentElement.style.overflow = "";
+        slides = [];
+        imgEl.removeAttribute("src");
+        imgEl.alt = "";
+        capEl.textContent = "";
+        counterEl.textContent = "";
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      }
+
+      function prev() {
+        if (slides.length < 2) return;
+        index = (index - 1 + slides.length) % slides.length;
+        render();
+      }
+
+      function next() {
+        if (slides.length < 2) return;
+        index = (index + 1) % slides.length;
+        render();
+      }
+
+      document.querySelectorAll(".project-gallery").forEach(function (gallery) {
+        gallery.querySelectorAll("figure").forEach(function (fig) {
+          fig.setAttribute("tabindex", "0");
+          fig.setAttribute("role", "button");
+          var cap = fig.querySelector("figcaption");
+          var hint = cap ? cap.textContent.trim() : "screenshot";
+          fig.setAttribute("aria-label", "Open gallery: " + hint);
+        });
+
+        gallery.addEventListener("click", function (e) {
+          var fig = e.target.closest("figure");
+          if (!fig || !gallery.contains(fig)) return;
+          e.preventDefault();
+          var figures = Array.prototype.slice.call(gallery.querySelectorAll("figure"));
+          var slidesData = figures.map(function (f) {
+            var im = f.querySelector("img");
+            var c = f.querySelector("figcaption");
+            return {
+              src: im.getAttribute("src"),
+              alt: im.getAttribute("alt") || "",
+              caption: c ? c.textContent.trim() : ""
+            };
+          });
+          open(slidesData, figures.indexOf(fig));
+        });
+
+        gallery.addEventListener("keydown", function (e) {
+          if (e.key !== "Enter" && e.key !== " ") return;
+          var fig = e.target.closest("figure");
+          if (!fig || !gallery.contains(fig)) return;
+          e.preventDefault();
+          fig.click();
+        });
+      });
+
+      btnClose.addEventListener("click", function (e) {
+        e.stopPropagation();
+        close();
+      });
+      backdrop.addEventListener("click", close);
+      btnPrev.addEventListener("click", function (e) {
+        e.stopPropagation();
+        prev();
+      });
+      btnNext.addEventListener("click", function (e) {
+        e.stopPropagation();
+        next();
+      });
+
+      lb.addEventListener("click", function (e) {
+        if (e.target === lb) close();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (!lb.classList.contains("is-open")) return;
+        if (e.key === "Escape") {
+          e.preventDefault();
+          close();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          prev();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          next();
+        }
+      });
+
+      if ("IntersectionObserver" in window) {
+        var revealSet = document.querySelectorAll("section, .hero .hero-card, .hero .stats .stat-box");
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                en.target.classList.add("reveal-visible");
+                io.unobserve(en.target);
+              }
+            });
+          },
+          { threshold: 0.06, rootMargin: "0px 0px -32px 0px" }
+        );
+        revealSet.forEach(function (el) {
+          el.classList.add("reveal-on-scroll");
+          io.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
