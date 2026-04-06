@@ -9,8 +9,8 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.12,
-      duration: 0.5,
+      delay: i * 0.16,
+      duration: 0.68,
       ease: "easeOut" as const,
     },
   }),
@@ -145,8 +145,8 @@ export const Projects: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: false, amount: 0.35, margin: '0px 0px -8% 0px' }}
+          transition={{ duration: 0.75, delay: 0.1 }}
           className="section-header"
         >
           <h2 className="section-title">Featured Projects</h2>
@@ -165,7 +165,7 @@ export const Projects: React.FC = () => {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.05 }}
+              viewport={{ once: false, amount: 0.3, margin: '0px 0px -6% 0px' }}
               style={{ display: 'flex', flexDirection: 'column' }}
             >
               <ProjectCard

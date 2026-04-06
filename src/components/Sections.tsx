@@ -3,16 +3,31 @@ import { motion } from 'framer-motion';
 import { Mail, Calendar, GraduationCap, Briefcase, ArrowRight } from 'lucide-react';
 import { skillCategories, experience, education, contact } from '../data';
 
-const RevealOnScroll: React.FC<{ children: React.ReactNode; delay?: number }> = ({ children, delay = 0 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 0.6, delay }}
-  >
-    {children}
-  </motion.div>
-);
+const RevealOnScroll: React.FC<{
+  children: React.ReactNode;
+  delay?: number;
+  from?: 'left' | 'right' | 'bottom';
+}> = ({ children, delay = 0, from = 'bottom' }) => {
+  const initial =
+    from === 'left'
+      ? { opacity: 0, x: -40, y: 0 }
+      : from === 'right'
+        ? { opacity: 0, x: 40, y: 0 }
+        : { opacity: 0, y: 30, x: 0 };
+
+  const animate = { opacity: 1, x: 0, y: 0 };
+
+  return (
+    <motion.div
+      initial={initial}
+      whileInView={animate}
+      viewport={{ once: false, amount: 0.35, margin: '0px 0px -8% 0px' }}
+      transition={{ duration: 0.85, delay: delay + 0.08, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export const Skills: React.FC = () => (
   <section id="skills" className="section">
@@ -28,7 +43,11 @@ export const Skills: React.FC = () => (
 
       <div className="skillsGrid">
         {skillCategories.map((cat, i) => (
-          <RevealOnScroll key={cat.title} delay={i * 0.1}>
+          <RevealOnScroll
+            key={cat.title}
+            delay={i * 0.1}
+            from={i === 0 ? 'left' : i === 1 ? 'bottom' : 'right'}
+          >
             <div className="glass-card p-8 h-full">
               <div className="iconBtn" style={{ width: '3.1rem', height: '3.1rem', marginBottom: '1.25rem' }}>
                 <cat.icon className="w-6 h-6" />
@@ -67,7 +86,7 @@ export const Timeline: React.FC = () => (
           <div className="space-y-8">
             {experience.map((exp, i) => (
               <RevealOnScroll key={exp.company + i} delay={i * 0.1}>
-                <div className="glass-card p-8 relative overflow-hidden group">
+                <div className="glass-card p-8 relative overflow-hidden group timelineCard">
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <Briefcase className="w-24 h-24" />
                   </div>
@@ -101,7 +120,7 @@ export const Timeline: React.FC = () => (
           <div className="space-y-8">
             {education.map((edu, i) => (
               <RevealOnScroll key={edu.school + i} delay={i * 0.1}>
-                <div className="glass-card p-8 relative overflow-hidden group">
+                <div className="glass-card p-8 relative overflow-hidden group timelineCard">
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <GraduationCap className="w-24 h-24" />
                   </div>

@@ -1,8 +1,8 @@
-import { 
-  Database, 
-  Globe, 
-  Cpu, 
-  Layout, 
+import {
+  Database,
+  Globe,
+  Cpu,
+  Layout,
   Workflow,
   Link,
   Zap,
@@ -24,8 +24,9 @@ export const navigation = [
 
 export const hero = {
   title: "Building practical software that solves real business problems.",
-  description: "I am a software engineer focused on full-stack web development, APIs, automation, and e-commerce applications. My work combines clean frontend experiences with reliable backend logic, integrations, and scalable system design.",
-  eyebrow: "Software Engineer • Full-Stack Web Development • E-commerce Systems",
+  description:
+    "I am a software engineer focused on full-stack web development, APIs, automation, and e-commerce applications. My work combines clean frontend experiences with reliable backend logic, integrations, and scalable system design. Strong fit for web, full-stack, internal tools, integration, SaaS, and e-commerce engineering roles.",
+  eyebrow: "Software Engineer • Full-Stack Web Development • Automation • E-commerce Systems",
   skills: [
     "JavaScript", "Node.js", "React", "Next.js", "Remix", "SQL", "Shopify APIs", "Python"
   ],
@@ -76,13 +77,13 @@ export const projects = [
       { name: "Pricing Demo", href: "https://youtu.be/ijQPD66E8FY", icon: Globe }
     ],
     images: [
-      { src: assetUrl("images/icar1.png"), caption: "Dealer Dashboard — real-time inventory and pricing" },
-      { src: assetUrl("images/icar2.png"), caption: "Market Analysis — historical price trends" },
-      { src: assetUrl("images/icar3.png"), caption: "Vehicle Evaluation — AI-powered price prediction" },
-      { src: assetUrl("images/icar4.png"), caption: "Alert System — custom notifications for price drops" },
+      { src: assetUrl("images/icar1.png"), caption: "Home Page" },
+      { src: assetUrl("images/icar2.png"), caption: "Dealer Login" },
+      { src: assetUrl("images/icar3.png"), caption: "Dealer Dashboard" },
+      { src: assetUrl("images/icar4.png"), caption: "Vehicle Evaluation — AI-powered price prediction" },
+      { src: assetUrl("images/icar7.png"), caption: "Admin login" },
       { src: assetUrl("images/icar5.png"), caption: "Admin Panel — managing listings and dealers" },
-      { src: assetUrl("images/icar6.png"), caption: "Mobile View — responsive access for dealers on the go" },
-      { src: assetUrl("images/icar7.png"), caption: "Detailed Listing — comprehensive vehicle data" }
+      { src: assetUrl("images/icar6.png"), caption: "Dealer Authentication" }
     ]
   },
   {
@@ -101,7 +102,7 @@ export const projects = [
       { name: "GitHub", href: "https://github.com/abdurehman370/ProcureAI-Smart-Inventory-Supply-Chain-Intelligence", icon: Link }
     ],
     images: [
-      { src: assetUrl("images/procurement1.png"), caption: "Executive Dashboard — high-level supply chain KPIs" },
+      { src: assetUrl("images/procurement1.png"), caption: "Executive Dashboard — Login-Page" },
       { src: assetUrl("images/procurement2.png"), caption: "Inventory Management — real-time stock tracking" },
       { src: assetUrl("images/procurement3.png"), caption: "Demand Forecasting — AI-driven stock predictions" },
       { src: assetUrl("images/procurement4.png"), caption: "Vendor Management — supplier performance and lead times" },
@@ -126,8 +127,10 @@ export const projects = [
       { name: "App Store", href: "https://apps.shopify.com/devteampro-product-reviews", icon: ShoppingBag }
     ],
     images: [
-      { src: assetUrl("project-images/shopify-reviews-1.svg"), caption: "Embedded admin — moderation workflows" },
-      { src: assetUrl("project-images/shopify-reviews-2.svg"), caption: "Merchant UX — fast review triage and publishing" }
+      { src: assetUrl("images/review1.jpg"), caption: "Embedded admin — moderation workflows" },
+      { src: assetUrl("images/review2.jpg"), caption: "Merchant UX — fast review triage and publishing" },
+      { src: assetUrl("images/review3.jpg"), caption: "Storefront reviews — customer-facing display" },
+      { src: assetUrl("images/review4.jpg"), caption: "Review management — settings and controls" }
     ]
   },
   {
