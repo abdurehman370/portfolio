@@ -169,7 +169,7 @@ export const education = [
   {
     school: "Bahria University, Karachi",
     degree: "BSCS (Bachelor of Science in Computer Science)",
-    period: "GPA: 3.4 / 4.0",
+    period: "CGPA: 3.4 / 4.0",
     description: "Focus on software engineering, data structures, and web technologies."
   }
 ];

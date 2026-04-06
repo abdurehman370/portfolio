@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import { Mail, Calendar, GraduationCap, Briefcase, ArrowRight } from 'lucide-react';
 import { skillCategories, experience, education, contact } from '../data';
-
-function contactSubmitUrl() {
-  const base = import.meta.env.VITE_CONTACT_API_URL?.replace(/\/$/, '');
-  return base ? `${base}/api/contact` : '/api/contact';
-}
 
 const RevealOnScroll: React.FC<{
   children: React.ReactNode;
@@ -157,28 +153,45 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+    if (!publicKey || !serviceId || !templateId) {
+      setStatus('error');
+      setStatusText(
+        'EmailJS is not configured. Add VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID to your environment.'
+      );
+      return;
+    }
+
     setStatus('loading');
     setStatusText('');
     try {
-      const res = await fetch(contactSubmitUrl(), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { error?: string };
-      if (!res.ok) {
-        setStatus('error');
-        setStatusText(data.error || 'Something went wrong.');
-        return;
-      }
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: name,
+          reply_to: email,
+          message: message,
+        },
+        publicKey
+      );
       setStatus('success');
       setStatusText('Message sent. I’ll get back to you soon.');
       setName('');
       setEmail('');
       setMessage('');
-    } catch {
+    } catch (err: unknown) {
       setStatus('error');
-      setStatusText('Could not reach the server. Is the contact API running?');
+      const msg =
+        err && typeof err === 'object' && 'text' in err && typeof (err as { text?: string }).text === 'string'
+          ? (err as { text: string }).text
+          : err instanceof Error
+            ? err.message
+            : 'Could not send. Try again.';
+      setStatusText(msg);
     }
   };
 
