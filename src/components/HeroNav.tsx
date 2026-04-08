@@ -20,37 +20,53 @@ export const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const els = sectionIds
-      .map(id => document.querySelector(id))
+    const sections = sectionIds
+      .map((hash) => document.querySelector(hash))
       .filter(Boolean) as HTMLElement[];
 
-    if (!els.length) return;
+    if (!sections.length) return;
 
-    let raf = 0;
-    const NAV_OFFSET_PX = 110; // accounts for fixed nav + a bit of breathing room
+    const sorted = [...sections].sort((a, b) => a.offsetTop - b.offsetTop);
 
-    const computeActive = () => {
-      const y = window.scrollY + NAV_OFFSET_PX;
-      let current = els[0];
-      for (const el of els) {
-        if (el.offsetTop <= y) current = el;
+    const pickActiveFromIntersections = (entries: IntersectionObserverEntry[]) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
+
+      if (visible.length > 0) {
+        setActiveHash(`#${(visible[0].target as HTMLElement).id}`);
+        return;
+      }
+
+      // Fallback: pick the last section above the "reading line"
+      const readingLine = window.scrollY + window.innerHeight * 0.35;
+      let current = sorted[0];
+      for (const el of sorted) {
+        if (el.offsetTop <= readingLine) current = el;
       }
       setActiveHash(`#${current.id}`);
     };
 
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(computeActive);
-    };
+    const observer = new IntersectionObserver(pickActiveFromIntersections, {
+      root: null,
+      // Encourage the active section to be the one in the middle-ish of the viewport
+      rootMargin: '-25% 0px -60% 0px',
+      threshold: [0, 0.1, 0.25, 0.5, 0.75],
+    });
 
-    computeActive();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    for (const el of sections) observer.observe(el);
+
+    const onHashChange = () => {
+      if (window.location.hash) setActiveHash(window.location.hash);
+    };
+    window.addEventListener('hashchange', onHashChange);
+
+    // Initialize once in case we load mid-page
+    onHashChange();
 
     return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      window.removeEventListener('hashchange', onHashChange);
+      observer.disconnect();
     };
   }, [sectionIds]);
 

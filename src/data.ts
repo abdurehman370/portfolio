@@ -138,20 +138,27 @@ export const projects = [
   },
   {
     id: "cod-pro",
-    title: "COD Pro Verification",
-    description: "Multi-channel cash-on-delivery verification workflow using WhatsApp, email, and call-based confirmation steps.",
-    tags: ["Node.js", "Automation", "E-commerce", "WhatsApp APIs"],
+    title: "ClarityDesk AI",
+    description: "Enterprise decision intelligence workspace that turns messy document sets into searchable evidence, contradiction analysis, decision memos, and follow-up actions.",
+    tags: ["Next.js", "NestJS", "Agentic AI", "RAG", "Workflow Automation", "PostgreSQL", "pgvector", "BullMQ", "Redis"],
     features: [
-      "Designed operational logic to reduce risky COD orders.",
-      "Connected communication flows into one merchant process.",
-      "Practical automation for store operations."
+      "Built a document ingestion pipeline with async processing for summaries, facts, chunks, and embeddings.",
+      "Implemented semantic search, document comparison, and contradiction detection across uploaded files.",
+      "Created decision memo generation, task follow-ups, workspace-scoped RBAC, and audit-ready activity logs."
     ],
     links: [
-      { name: "App Store", href: "https://apps.shopify.com/cod-call-whatsapp-email", icon: ShoppingBag }
+      { name: "GitHub", href: "https://github.com/abdurehman370/ClarityDesk-Ai", icon: Link },
+      { name: "Case study", href: assetUrl("claritydesk-case-study.pdf"), icon: FileText }
     ],
     images: [
-      { src: assetUrl("project-images/cod-pro-1.svg"), caption: "Flow overview — WhatsApp, email, and call steps" },
-      { src: assetUrl("project-images/cod-pro-2.svg"), caption: "Operational logic — reduce risky COD orders" }
+      { src: assetUrl("images/claritydesk2.png"), caption: "Login / Signup page" },
+      { src: assetUrl("images/claritydesk3.png"), caption: "Dashboard" },
+      { src: assetUrl("images/claritydesk4.png"), caption: "Manage Workspaces" },
+      { src: assetUrl("images/claritydesk5.png"), caption: "Upload Document for Workspace" },
+      { src: assetUrl("images/claritydesk6.png"), caption: "AI Based Intelligence Memo" },
+      { src: assetUrl("images/claritydesk7.png"), caption: "AI based Intelligence Comparison Matrix" },
+      { src: assetUrl("images/claritydesk8.png"), caption: "AI based Risk Analysis" },
+      { src: assetUrl("images/claritydesk9.png"), caption: "Action Task" }
     ]
   }
 ];
